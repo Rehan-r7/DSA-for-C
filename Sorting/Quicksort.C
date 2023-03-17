@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+
 void swap(int *x, int *y)
 {
     int temp = *x;
@@ -25,23 +25,21 @@ int partition(int A[], int low, int high)
 	    right--;
 	   }
 	if (left < right)
-	{
-	   // printf("%d A[low]",A[low]);
-	    swap(&A[left], &A[right]);
-	    //printf("%d A[low]",A[low]);
+	{   
+	    swap(&A[left], &A[right]);	   
 	}
     }
 
     A[low] = A[right];
     A[right] = pivot_item;
-   // printf("%d A[low]",A[low]);
+	
     return right;
 }
 void Quicksort(int A[], int low, int high)
 {
     int pi;//partition index
     printf("\n");
-    printf(" %d(low) %d(high)",low,high);
+    printf(" %d(low) %d(high)",low,high); //Low and High for each pass
 
     if (low < high)
     {
@@ -60,12 +58,12 @@ void print(int A[], int n)
     }
 }
 
-void main()
+int main()
 {
     int A[] = {5, 4, 1, 3, 2};
 
     int n = sizeof(A) / sizeof(A[0]);
-    clrscr();
+   
     printf("Before Sorting : - \n");
     print(A, n);
 
@@ -74,7 +72,5 @@ void main()
     printf("After Sorting : - \n");
     print(A, n);
 
-    getch();
-
-   // return 0;
+    return 0;
 }
